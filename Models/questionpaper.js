@@ -1,6 +1,6 @@
-import { Schema, model } from 'mongoose';
+const mongoose = require('mongoose')
 
-const questionpaper = new Schema({
+const questionpaper = new mongoose.Schema({
     question:{
         type: String,
         require: true
@@ -30,8 +30,6 @@ const questionpaper = new Schema({
 
 });
 
-const questionPaper = model('questionPaper',questionpaper)
+const questionPaper = mongoose.model('questionPaper',questionpaper)
 
-export default{
-    questionPaper,
-}
+module.exports = questionPaper;

@@ -1,10 +1,12 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const questionpaper = require('../Models/questionpaper')
 
-const uri = "mongodb+srv://Asish:<password>@cluster0.it1lvdq.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
+const getQuestionPaper = async ()=>{
+  try{
+    return await questionpaper.find();
+  }catch (err){
+    console.error(`error querying data :${err}`)
+    throw err;
   }
-});
+};
+
+module.exports = getQuestionPaper;
