@@ -30,6 +30,6 @@ const questionpaper = new mongoose.Schema({
 
 });
 
-const questionPaper = mongoose.model('questionPaper',questionpaper)
+const questionPaper = mongoose.model('questionPaper',questionpaper,'demo')
 
 module.exports = questionPaper;

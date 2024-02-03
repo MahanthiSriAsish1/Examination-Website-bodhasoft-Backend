@@ -6,19 +6,14 @@ const {response, request} = require("express");
 
 const router =express.Router()
 
-router.all('/QuestionPaper',async(request, response)=>{
-    if(request.method === 'GET'){
+router.get('/QuestionPaper',async(request, response)=>{
         try{
             const data = await getQuestionPaper();
             response.json(data)
-        }catch (err){
+        }catch (err) {
             response.status(500).send('Internal Server Error');
             throw err;
         }
-        finally {
-            mongoose.connection.close();
-        }
-    }
 })
 
 router.post('/upload-results', async (request,response)=>{
@@ -30,8 +25,6 @@ router.post('/upload-results', async (request,response)=>{
     }catch (err) {
         response.status(500).send('Internal Server Error');
         throw err;
-    }finally {
-        mongoose.connection.close();
     }
 })
 
@@ -44,8 +37,6 @@ router.post('/upload-student-details', async (request,response)=>{
     }catch (err) {
         response.status(500).send('Internal Server Error');
         throw err;
-    }finally {
-        mongoose.connection.close();
     }
 })
 

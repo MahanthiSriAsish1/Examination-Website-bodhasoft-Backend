@@ -42,7 +42,7 @@ const studentdetails = new mongoose.Schema({
           },
           message: 'Invalid email format or domain. Only gmail.com or hotmail.com are allowed.',
         },
-      },
+    },
 })
 
 
