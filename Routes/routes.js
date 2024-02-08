@@ -1,5 +1,5 @@
 const express =require('express')
-const getQuestionPaper = require('../Controllers/get_data_controller')
+const {getQuestionPaper , getExamDetails} = require('../Controllers/get_data_controller')
 const {UploadResults,UploadStudentDetails} = require('../Controllers/post_data_controller')
 const mongoose =require('mongoose')
 const {response, request} = require("express");
@@ -14,6 +14,16 @@ router.get('/QuestionPaper',async(request, response)=>{
             response.status(500).send('Internal Server Error');
             throw err;
         }
+})
+
+router.get('/examDetails',async(request, response)=>{
+    try{
+        const data = await getExamDetails();
+        response.json(data)
+    }catch (err) {
+        response.status(500).send('Internal Server Error');
+        throw err;
+    }
 })
 
 router.post('/upload-results', async (request,response)=>{

@@ -8,6 +8,7 @@ const cors = require('cors')
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
+// middlewares
 const dbName = 'QuestionPaper'
 
 const connectToDb = async (dbName) => {
@@ -25,4 +26,12 @@ app.use('/api', routes);
 
 app.listen(port, () => {
     console.log(`Now listening on port ${port}`);
-}); 
+});
+
+
+//controllers
+//models
+//middlewares
+//routes
+//services
+//dbconnections
